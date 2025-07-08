@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,9 @@
     <title>Naman Pal – Tech Portfolio</title>
     <meta name="description" content="Tech Portfolio of Naman Pal - Computer Science student, Tech Explorer, Coder, and Problem Solver specializing in Data Science and Machine Learning">
     <meta name="author" content="Naman Pal">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
     
     <meta property="og:title" content="Naman Pal – Tech Portfolio">
     <meta property="og:description" content="Modern Tech Portfolio showcasing innovative projects in Data Science, ML, and Web Development">
@@ -28,7 +32,11 @@
                 <a href="#projects" class="nav-link" data-section="projects">Projects</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
                 <button class="theme-toggle" id="themeToggle">
-                    <span class="theme-icon">🌙</span>
+                    <span class="theme-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
                 </button>
             </div>
         </div>
@@ -60,6 +68,11 @@
                 
                 <div class="hero-content">
                     <h1 class="hero-title">Hey, I'm Naman</h1>
+                    
+                    <!-- Personal Tagline -->
+                    <div class="hero-tagline">
+                        <p class="tagline-text">Aspiring Data Analyst | Python Enthusiast | Final Year CSE Student</p>
+                    </div>
                     
                     <div class="hero-subtitle">
                         <div class="rotating-text-container">
@@ -280,7 +293,7 @@
                             <span>2024</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/naman33" target="_blank" class="project-link">
+                            <a href="https://github.com/naman33/Energy_Demand_Forecasting" target="_blank" class="project-link">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                 </svg>
@@ -298,6 +311,11 @@
                     <p class="project-description">
                         Built a time series forecasting model using ARIMA to predict energy consumption. Performed comprehensive trend and seasonality analysis, tuned model parameters with ACF/PACF analysis, and created interactive visualizations using Matplotlib and Seaborn for stakeholder presentations.
                     </p>
+
+                    <div class="project-tech-stack">
+                        <p class="tech-stack-label">Tech Stack:</p>
+                        <p class="tech-stack-summary">Python, ARIMA, Pandas, NumPy, Matplotlib, Seaborn for time series analysis and data visualization</p>
+                    </div>
 
                     <div class="project-tags">
                         <span class="project-tag">
@@ -323,18 +341,6 @@
                                 <path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.78 12.45,22 13,22C13.55,22 14.05,21.78 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.45 21.78,11.95 21.41,11.58Z"/>
                             </svg>
                             Data Visualization
-                        </span>
-                        <span class="project-tag">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.78 12.45,22 13,22C13.55,22 14.05,21.78 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.45 21.78,11.95 21.41,11.58Z"/>
-                            </svg>
-                            Matplotlib
-                        </span>
-                        <span class="project-tag">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.78 12.45,22 13,22C13.55,22 14.05,21.78 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.45 21.78,11.95 21.41,11.58Z"/>
-                            </svg>
-                            Seaborn
                         </span>
                     </div>
                 </div>
@@ -362,6 +368,36 @@
                     I'm always interested in discussing data science opportunities, collaborations, or just connecting with fellow enthusiasts.
                 </p>
                 <p class="contact-note">Got a project, question, or random thought? I'm all ears.</p>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                        </svg>
+                        Send Message
+                    </button>
+                </form>
             </div>
             
             <div class="contact-grid">

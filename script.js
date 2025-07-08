@@ -1,3 +1,4 @@
+
 // Theme Management
 class ThemeManager {
     constructor() {
@@ -14,10 +15,23 @@ class ThemeManager {
     applyTheme() {
         if (this.theme === 'dark') {
             document.body.classList.add('dark');
-            this.themeToggle.innerHTML = '<span class="theme-icon">☀️</span>';
+            this.themeToggle.innerHTML = `
+                <span class="theme-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                    </svg>
+                </span>
+            `;
         } else {
             document.body.classList.remove('dark');
-            this.themeToggle.innerHTML = '<span class="theme-icon">🌙</span>';
+            this.themeToggle.innerHTML = `
+                <span class="theme-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </span>
+            `;
         }
     }
 
@@ -123,6 +137,82 @@ class NavigationManager {
     }
 }
 
+// Contact Form Management
+class ContactFormManager {
+    constructor() {
+        this.form = document.getElementById('contactForm');
+        this.init();
+    }
+
+    init() {
+        if (this.form) {
+            this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        }
+    }
+
+    async handleSubmit(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this.form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+
+        // Simulate form submission (replace with actual service like Formspree)
+        try {
+            // Show loading state
+            const submitBtn = this.form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity=".25"/><path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z" class="spinner"/></svg>Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Show success message
+            this.showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+            this.form.reset();
+            
+            // Restore button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        } catch (error) {
+            this.showMessage('Failed to send message. Please try again or contact me directly.', 'error');
+            console.error('Form submission error:', error);
+        }
+    }
+
+    showMessage(message, type) {
+        // Create and show notification
+        const notification = document.createElement('div');
+        notification.className = `form-notification ${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            animation: slideInRight 0.3s ease-out;
+            background: ${type === 'success' ? '#10b981' : '#ef4444'};
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out';
+            setTimeout(() => notification.remove(), 300);
+        }, 4000);
+    }
+}
+
 // Scroll animations
 class ScrollAnimations {
     constructor() {
@@ -161,7 +251,7 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Mobile menu toggle (if needed)
+// Mobile menu toggle
 function toggleMobileMenu() {
     const navMenu = document.querySelector('.nav-menu');
     navMenu.classList.toggle('active');
@@ -177,6 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize navigation
     new NavigationManager();
+    
+    // Initialize contact form
+    new ContactFormManager();
     
     // Initialize scroll animations
     new ScrollAnimations();
@@ -195,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor: pointer;
             padding: 0.5rem;
             color: inherit;
+            transition: all 0.3s ease;
         `;
         mobileMenuBtn.onclick = toggleMobileMenu;
         
@@ -213,6 +307,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // Add animation styles for notifications
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
 });
 
 // Handle window resize
