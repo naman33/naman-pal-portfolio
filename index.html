@@ -463,18 +463,18 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function(){
-    emailjs.init("YOUR_PUBLIC_KEY_HERE"); // 👈 Replace with your actual EmailJS public key
+    emailjs.init("o32SIZgy_GVxf6VKa"); // 👈 Replace with your actual EmailJS public key
   })();
 
   document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs.sendForm('YOUR_SERVICE_ID_HERE', 'YOUR_TEMPLATE_ID_HERE', this)
+    emailjs.sendForm('service_2h7gw1i', 'template_o6ddseb', this)
       .then(() => {
-        alert('✅ Message sent successfully!');
+        alert(' Message sent successfully!');
         this.reset(); // Reset form after successful send
       }, (error) => {
-        alert('❌ Failed to send message: ' + error.text);
+        alert('Failed to send message: ' + error.text);
       });
   });
 </script>
