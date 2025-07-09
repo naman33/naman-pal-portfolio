@@ -459,5 +459,24 @@
     </section>
 
     <script src="script.js"></script>
+    <!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY_HERE"); // 👈 Replace with your actual EmailJS public key
+  })();
+
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID_HERE', 'YOUR_TEMPLATE_ID_HERE', this)
+      .then(() => {
+        alert('✅ Message sent successfully!');
+        this.reset(); // Reset form after successful send
+      }, (error) => {
+        alert('❌ Failed to send message: ' + error.text);
+      });
+  });
+</script>
 </body>
 </html>
